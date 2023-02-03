@@ -1,4 +1,4 @@
-package com.falcao.cordstore.models;
+package com.falcao.cordstore.models.enums;
 
 public enum ERole {
     ROLE_USER,

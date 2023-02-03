@@ -1,6 +1,6 @@
 package com.falcao.cordstore.controllers;
 
-import com.falcao.cordstore.models.ERole;
+import com.falcao.cordstore.models.enums.ERole;
 import com.falcao.cordstore.models.Role;
 import com.falcao.cordstore.models.User;
 import com.falcao.cordstore.payload.request.LoginRequest;
