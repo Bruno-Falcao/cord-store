@@ -1,5 +1,6 @@
 package com.falcao.cordstore.models;
 
+import com.falcao.cordstore.models.enums.ERole;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
