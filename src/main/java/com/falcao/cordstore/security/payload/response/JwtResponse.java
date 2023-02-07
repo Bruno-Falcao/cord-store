@@ -1,4 +1,4 @@
-package com.falcao.cordstore.payload.response;
+package com.falcao.cordstore.security.payload.response;
 
 import java.util.List;
 

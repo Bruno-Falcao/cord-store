@@ -1,7 +1,8 @@
-package com.falcao.cordstore.services;
+package com.falcao.cordstore.security;
 
 import com.falcao.cordstore.models.User;
 import com.falcao.cordstore.repositories.UserRepository;
+import com.falcao.cordstore.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

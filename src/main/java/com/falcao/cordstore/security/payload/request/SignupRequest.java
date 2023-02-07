@@ -1,4 +1,4 @@
-package com.falcao.cordstore.payload.request;
+package com.falcao.cordstore.security.payload.request;
 
 
 import javax.validation.constraints.Email;

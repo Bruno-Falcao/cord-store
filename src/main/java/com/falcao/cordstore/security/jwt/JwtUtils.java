@@ -2,7 +2,7 @@ package com.falcao.cordstore.security.jwt;
 
 import java.util.Date;
 
-import com.falcao.cordstore.services.UserDetailsImpl;
+import com.falcao.cordstore.security.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

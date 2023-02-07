@@ -2,7 +2,6 @@ package com.falcao.cordstore.security;
 
 import com.falcao.cordstore.security.jwt.AuthEntryPointJwt;
 import com.falcao.cordstore.security.jwt.AuthTokenFilter;
-import com.falcao.cordstore.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

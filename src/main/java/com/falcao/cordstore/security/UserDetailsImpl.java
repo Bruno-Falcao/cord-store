@@ -1,4 +1,4 @@
-package com.falcao.cordstore.services;
+package com.falcao.cordstore.security;
 
 import java.util.Collection;
 import java.util.List;
