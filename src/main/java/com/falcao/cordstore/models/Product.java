@@ -25,5 +25,7 @@ public class Product {
     private BigDecimal value;
     private Catogories category;
     private Boolean visibility;
+
+    private Integer quantity;
 }
 

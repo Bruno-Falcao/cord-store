@@ -138,20 +138,21 @@ public class ProductService {
         return byCategory;
     }
 
-    private static void fieldsUpdate(Product product, Optional<Product> optionalProduct) {
+    private void fieldsUpdate(Product product, Optional<Product> optionalProduct) {
         optionalProduct.get().setProductName(product.getProductName());
         optionalProduct.get().setBrand(product.getBrand());
         optionalProduct.get().setDescription(product.getDescription());
         optionalProduct.get().setValue(product.getValue());
         optionalProduct.get().setCategory(product.getCategory());
         optionalProduct.get().setVisibility(product.getVisibility());
+        optionalProduct.get().setQuantity(product.getQuantity());
     }
 
     private static boolean saveConstraints(Product product) {
         return product != null && product.getId() == null;
     }
 
-    private static void isEmpty(List<Product> byBrand) {
-        if (byBrand.isEmpty()) throw new NotFoundException("No products found");
+    private void isEmpty(List<Product> products) {
+        if (products.isEmpty()) throw new NotFoundException("No products found");
     }
 }
