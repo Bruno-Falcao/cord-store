@@ -21,6 +21,14 @@ public class CouponService {
         this.couponRepository = couponRepository;
     }
 
+    /**
+     * This method saves a new coupon based in some constraints
+     * activated = true: Coupons necessarily need a valid expiration date
+     * activated = false: Coupons necessarily need a valid start date and expiration date
+     * @param coupon
+     * @return
+     * @throws Exception
+     */
     public String saveCoupon(Coupon coupon) throws Exception {
         if (activatedCouponSaveContraints(coupon)) {
             couponRepository.save(coupon);
@@ -33,6 +41,12 @@ public class CouponService {
         throw new Exception("Error saving product");
     }
 
+    /**
+     * This method update an existing coupon, start date and expiration should be valid
+     * @param coupon
+     * @return
+     * @throws Exception
+     */
     public String updateCoupon(Coupon coupon) throws Exception {
         Optional<Coupon> couponById = findCouponById(coupon.getId());
         if (updateCouponValidation(coupon, couponById)) {
@@ -44,17 +58,31 @@ public class CouponService {
         throw new Exception("Error saving product");
     }
 
+    /**
+     * This method find a coupon using the id passed as parameter
+     * @param id
+     * @return
+     */
     public Optional<Coupon> findCouponById(String id) {
         return Optional.ofNullable(couponRepository
                 .findById(id).orElseThrow(() -> new NotFoundException("Coupon not found")));
     }
 
+    /**
+     * This method finds all the activated coupons
+     * @return
+     */
     public List<Coupon> findAllActiveCoupons() {
         List<Coupon> coupons = couponRepository.findAllByVisibility();
         isEmpty(coupons);
         return coupons;
     }
 
+    /**
+     * This method finds all activated coupons based on passed name as parameter
+     * @param name
+     * @return
+     */
     public List<Coupon> findActiveCouponsByName(String name) {
         List<Coupon> coupons = couponRepository.findActiveCouponByName(name);
         isEmpty(coupons);
@@ -107,17 +135,6 @@ public class CouponService {
             return true;
         }
         throw new ExpirationDateException("The start date is after the expiration date");
-    }
-
-    /**
-     * This method validates if the coupon is expired
-     *
-     * @param coupon
-     * @return
-     */
-    //TODO
-    private Boolean isValid(Coupon coupon) {
-        return false;
     }
 
     private void fieldsUpdate(Coupon coupon, Optional<Coupon> couponById) {
