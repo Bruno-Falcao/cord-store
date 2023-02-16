@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.Collections;
 
+
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("peripheral")
 public class ProductController {
@@ -24,6 +26,7 @@ public class ProductController {
     }
 
     @PostMapping("/save_product")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Object> saveProduct(@RequestBody Product peripheral) {
         try {
             return ResponseEntity.ok()
@@ -37,6 +40,7 @@ public class ProductController {
     }
 
     @PutMapping("/update_product")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Object> uptdateProduct(@RequestBody Product peripheral) {
         try {
             return ResponseEntity.ok()
@@ -65,6 +69,7 @@ public class ProductController {
     }
 
     @GetMapping("/find_product")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Object> findProductById(@RequestParam(name = "id") String id) {
         try {
             return ResponseEntity.ok()
@@ -78,6 +83,7 @@ public class ProductController {
     }
 
     @GetMapping("/find_by_visibility")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Object> findProductByVisibility() {
         try {
             return ResponseEntity.ok()
@@ -91,6 +97,7 @@ public class ProductController {
     }
 
     @GetMapping("/find_by_brand")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Object> findProductByBrand(@RequestParam(name = "brand") String brand) {
         try {
             return ResponseEntity.ok()
@@ -104,6 +111,7 @@ public class ProductController {
     }
 
     @GetMapping("/find_by_name")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Object> findProductByName(@RequestParam(name = "name") String name) {
         try {
             return ResponseEntity.ok()
@@ -117,6 +125,7 @@ public class ProductController {
     }
 
     @GetMapping("/find_by_category")
+    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Object> findProductByCategories(@RequestParam(name = "category") int category) {
         try {
             return ResponseEntity.ok()
@@ -130,6 +139,7 @@ public class ProductController {
     }
 
     @PatchMapping("/delete_product")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Object> deleteProduct(@RequestParam(name = "id") String id) {
         try {
             return ResponseEntity.ok()

@@ -3,14 +3,14 @@ package com.falcao.cordstore.controllers;
 import com.falcao.cordstore.models.enums.ERole;
 import com.falcao.cordstore.models.Role;
 import com.falcao.cordstore.models.User;
-import com.falcao.cordstore.payload.request.LoginRequest;
-import com.falcao.cordstore.payload.request.SignupRequest;
-import com.falcao.cordstore.payload.response.JwtResponse;
-import com.falcao.cordstore.payload.response.MessageResponse;
+import com.falcao.cordstore.security.payload.request.LoginRequest;
+import com.falcao.cordstore.security.payload.request.SignupRequest;
+import com.falcao.cordstore.security.payload.response.JwtResponse;
+import com.falcao.cordstore.security.payload.response.MessageResponse;
 import com.falcao.cordstore.repositories.RoleRepository;
 import com.falcao.cordstore.repositories.UserRepository;
 import com.falcao.cordstore.security.jwt.JwtUtils;
-import com.falcao.cordstore.services.UserDetailsImpl;
+import com.falcao.cordstore.security.UserDetailsImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,7 +26,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

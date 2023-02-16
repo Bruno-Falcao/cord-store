@@ -1,4 +1,4 @@
-package com.falcao.cordstore.payload.response;
+package com.falcao.cordstore.security.payload.response;
 
 public class MessageResponse {
     private String message;
